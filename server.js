@@ -1,21 +1,48 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
-app.get('/', function(req, res) {
-    res.render('pages/index');
-})
+app.get("/", function (req, res) {
+  const items = [
+    {
+      title: "D",
+      message: "esenvolvedor aplicação/serviços de forma facil",
+    },
+    {
+        title: 'E',
+        message: 'JS usa Javascript para renderizar HTML',
+    },
+    {
+        title: 'M',
+        message: 'uito fácil de usar',
+    },
+    {
+        title: 'A',
+        message: 'egal',
+    },
+    {
+        title: 'I',
+        message: 'nstall ejs',
+    },
+    {
+        title: 'S',
+        message: 'intaxe simples',
+    },
 
-app.get('/sobre', function(req, res) {
-    res.render('pages/about');
-})
+  ];
+  res.render("pages/index", {
+    qualitys: items,
+  });
+});
 
-app.get('/jogo', function(req, res) {
-    res.render('pages/jogo');
-})
+app.get("/sobre", function (req, res) {
+  res.render("pages/about");
+});
 
-
+app.get("/jogo", function (req, res) {
+  res.render("pages/jogo");
+});
 
 app.listen(8080);
-console.log('rodadando')
+console.log("rodadando");
